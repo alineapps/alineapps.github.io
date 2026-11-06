@@ -4,40 +4,157 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ALINE APPS</title>
+<meta name="description" content="Windows と iPhone のための小さなアプリ。">
+<meta name="theme-color" content="#1D2A44">
 <style>
-  :root { color-scheme: light dark; --bg: #ffffff; --fg: #1c1c1e; --muted: #6e6e73; --accent: #0067c0; }
-  @media (prefers-color-scheme: dark) { :root { --bg: #0a0a0b; --fg: #f2f2f7; --muted: #a1a1a6; --accent: #4cc2ff; } }
-  body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.7 "Segoe UI", "Yu Gothic UI", -apple-system, "Hiragino Sans", sans-serif; }
-  main { max-width: 40em; margin: 0 auto; padding: 48px 16px; }
+  :root {
+    color-scheme: light dark;
+    --navy: #1D2A44;
+    --amber: #F29A3A;
+    --bg: #F4F5F8;
+    --card: #FFFFFF;
+    --fg: #141821;
+    --sub: #5E626A;
+    --line: #E2E4EA;
+    --accent: #9A4A0E;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0B0F17;
+      --card: #161C28;
+      --fg: #F2F2F7;
+      --sub: #A3A8B3;
+      --line: #273042;
+      --accent: #F2AE6B;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.75 -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Segoe UI", "Yu Gothic UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
   a { color: var(--accent); }
-  .muted { color: var(--muted); }
-  h2 { font-size: 20px; margin: 40px 0 8px; }
-  li { margin-bottom: 8px; }
-  li .muted { font-size: 15px; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+  .hero { background: var(--navy); color: #FFFFFF; }
+  .hero .wrap { padding-top: 72px; padding-bottom: 72px; }
+  .hero h1 { font-size: clamp(40px, 7vw, 60px); line-height: 1.1; margin: 0 0 16px; letter-spacing: -0.02em; }
+  .hero p { margin: 0; color: #C9D2E3; font-size: clamp(16px, 2.2vw, 19px); }
+  .hero .en { font-size: 15px; margin-top: 4px; }
+
+  section { padding: 64px 0 0; }
+  .section-title { font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin: 0 0 8px; }
+  h2 { font-size: clamp(24px, 3.4vw, 30px); line-height: 1.3; margin: 0 0 8px; letter-spacing: -0.01em; }
+  .section-note { color: var(--sub); margin: 0 0 28px; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+  .app { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 22px; display: flex; gap: 18px; align-items: flex-start; }
+  .app-icon { width: 64px; height: 64px; border-radius: 15px; flex: none; display: block; }
+  .tile { display: flex; align-items: center; justify-content: center; color: #FFFFFF; }
+  .tile svg { width: 34px; height: 34px; }
+  .daybeam { background: #E8A13A; }
+  .wishbox { background: #C2457A; }
+  .app-body { min-width: 0; }
+  .app h3 { font-size: 19px; margin: 0 0 4px; line-height: 1.4; }
+  .app h3 a { color: var(--fg); text-decoration: none; }
+  .app h3 a:hover { color: var(--accent); }
+  .app p { margin: 0; font-size: 15px; }
+  .app .en { color: var(--sub); font-size: 14px; margin-top: 2px; }
+  .tag { display: inline-block; margin-top: 10px; font-size: 13px; font-weight: 600; border: 1px solid var(--line); border-radius: 999px; padding: 1px 10px; color: var(--sub); text-decoration: none; }
+  a.tag { color: var(--accent); border-color: currentColor; }
+
+  footer { margin-top: 80px; border-top: 1px solid var(--line); padding: 32px 0 56px; color: var(--sub); font-size: 14px; }
 </style>
 </head>
 <body>
-<main>
-  <h1>ALINE APPS</h1>
-  <p class="muted">Windows と iPhone のための小さなアプリ / Small apps for Windows and iPhone</p>
 
-  <h2>Windows</h2>
-  <ul>
-    <li><a href="clipboarder/">Clipboarder</a> — コピーの履歴を Ctrl キー 2 回で呼び出す。<a href="https://apps.microsoft.com/detail/9NN6XJZRQJ7P">Microsoft Store</a> で公開中<br><span class="muted">Clipboard history with a double Ctrl press. Available on Microsoft Store</span></li>
-  </ul>
+<header class="hero">
+  <div class="wrap">
+    <h1>ALINE APPS</h1>
+    <p>Windows と iPhone のための小さなアプリ</p>
+    <p class="en" lang="en">Small apps for Windows and iPhone</p>
+  </div>
+</header>
 
-  <h2>iPhone（開発中 / In development）</h2>
-  <p class="muted">Daybeam シリーズ — 今日を明るく照らす。 / The Daybeam series — light up your today.</p>
-  <ul>
-    <li><a href="daybeam-calendar/">Daybeam Calendar</a> — 開いた瞬間、今日がわかる。予定・リマインダー・天気をひと目で<br><span class="muted">Today’s events, reminders and weather at a glance</span></li>
-    <li><a href="daybeam-remind/">Daybeam Remind</a> — 「最後にいつやった？」に、ひと目で答える<br><span class="muted">See how long it has been since you last did each chore</span></li>
-    <li><a href="daybeam-reader/">Daybeam Reader</a> — 今日の新着を、ひと目で読み切る RSS リーダー<br><span class="muted">An RSS reader for today’s new posts</span></li>
-  </ul>
-  <p class="muted">そのほか / Others</p>
-  <ul>
-    <li><a href="tankful/">Tankful</a>（仮の名前） — 車・バイクの燃費を、手間なく記録して眺める<br><span class="muted">Effortless fuel-economy log for cars and motorcycles (working name)</span></li>
-    <li><a href="wishbox/">Wishbox</a>（仮の名前） — あちこちの EC サイトの欲しいものを一か所で管理<br><span class="muted">Your wish list from every online store, in one place (working name)</span></li>
-  </ul>
+<main class="wrap">
+  <section>
+    <p class="section-title">Windows</p>
+    <h2>Windows のアプリ</h2>
+    <p class="section-note">公開中 / Available now</p>
+    <div class="grid">
+      <div class="app">
+        <img class="app-icon" src="clipboarder/icon.png" alt="">
+        <div class="app-body">
+          <h3><a href="clipboarder/">Clipboarder</a></h3>
+          <p>コピーの履歴を Ctrl キー 2 回で呼び出す</p>
+          <p class="en" lang="en">Clipboard history with a double Ctrl press</p>
+          <a class="tag" href="https://apps.microsoft.com/detail/9NN6XJZRQJ7P">Microsoft Store で入手</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="section-title">iPhone</p>
+    <h2>iPhone のアプリ</h2>
+    <p class="section-note">開発中 / In development</p>
+    <div class="grid">
+      <div class="app">
+        <img class="app-icon" src="tankful/icon.png" alt="">
+        <div class="app-body">
+          <h3><a href="tankful/">Tankful</a></h3>
+          <p>車・バイクの燃費を、手間なく記録して眺める</p>
+          <p class="en" lang="en">Effortless fuel-economy log for cars and motorcycles</p>
+        </div>
+      </div>
+      <div class="app">
+        <div class="app-icon tile wishbox" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v9H4v-9"/><path d="M2 7h20v5H2Z"/><path d="M12 21V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7Z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7Z"/></svg></div>
+        <div class="app-body">
+          <h3><a href="wishbox/">Wishbox</a></h3>
+          <p>あちこちの EC サイトの欲しいものを一か所で管理</p>
+          <p class="en" lang="en">Your wish list from every online store, in one place</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="section-title">Daybeam</p>
+    <h2>Daybeam シリーズ</h2>
+    <p class="section-note">今日を明るく照らす。 / Light up your today. — 開発中 / In development</p>
+    <div class="grid">
+      <div class="app">
+        <div class="app-icon tile daybeam" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg></div>
+        <div class="app-body">
+          <h3><a href="daybeam-calendar/">Daybeam Calendar</a></h3>
+          <p>開いた瞬間、今日がわかる。予定・リマインダー・天気をひと目で</p>
+          <p class="en" lang="en">Today’s events, reminders and weather at a glance</p>
+        </div>
+      </div>
+      <div class="app">
+        <div class="app-icon tile daybeam" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l3 2"/></svg></div>
+        <div class="app-body">
+          <h3><a href="daybeam-remind/">Daybeam Remind</a></h3>
+          <p>「最後にいつやった？」に、ひと目で答える</p>
+          <p class="en" lang="en">See how long it has been since you last did each chore</p>
+        </div>
+      </div>
+      <div class="app">
+        <div class="app-icon tile daybeam" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg></div>
+        <div class="app-body">
+          <h3><a href="daybeam-reader/">Daybeam Reader</a></h3>
+          <p>今日の新着を、ひと目で読み切る RSS リーダー</p>
+          <p class="en" lang="en">An RSS reader for today’s new posts</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>© ALINE APPS</footer>
 </main>
+
 </body>
 </html>
