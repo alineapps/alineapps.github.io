@@ -6,22 +6,29 @@
 <meta name="referrer" content="no-referrer">
 <meta name="robots" content="noindex">
 <title>Daybeam Reader</title>
-<style>
-  :root { color-scheme: light dark; --bg: #ffffff; --fg: #1c1c1e; --sub: #6e6e73; --accent: #c77c00; }
-  @media (prefers-color-scheme: dark) { :root { --bg: #0a0a0b; --fg: #f2f2f7; --sub: #98989d; --accent: #ffb340; } }
-  body { margin: 0; padding: 48px 16px; background: var(--bg); color: var(--fg); font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif; text-align: center; }
-  p { margin: 0 auto 12px; max-width: 28em; }
-  .sub { color: var(--sub); font-size: 15px; }
-  a { color: var(--accent); }
-</style>
+<meta name="theme-color" content="#1D2A44">
+<link rel="stylesheet" href="../../../site.css">
 </head>
 <body>
-<p>Daybeam Reader に戻ります…</p>
-<p class="sub">Returning to Daybeam Reader…</p>
-<p class="sub"><a id="open" href="daybeamreader://instapaper/callback">アプリを開く / Open the app</a></p>
+<header class="hero small">
+  <div class="wrap">
+    <div class="hero-body">
+      <div class="hero-text">
+        <h1>Daybeam Reader に戻ります…</h1>
+        <p class="meta" lang="en">Returning to Daybeam Reader…</p>
+      </div>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+  <section>
+    <p><a class="button" id="open" href="daybeamreader://instapaper/callback">アプリを開く / Open the app</a></p>
+  </section>
+</main>
 <script>
   // Instapaper sends the user back here with ?code=…&state=… (or ?error=…). This page keeps
-  // nothing and loads nothing else; it only hands the query to the app's own URL scheme.
+  // nothing and loads only the site's own stylesheet (no referrer is sent); it only hands the
+  // query to the app's own URL scheme.
   (function () {
     var target = 'daybeamreader://instapaper/callback' + window.location.search;
     document.getElementById('open').setAttribute('href', target);

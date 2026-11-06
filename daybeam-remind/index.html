@@ -3,69 +3,91 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Daybeam Remind</title>
-<meta name="description" content="あれ、最後にいつやった？に、ひと目で答える。最後にやってからの日数を見せる iPhone 向けのアプリ。">
-<style>
-  :root { color-scheme: light dark; --bg: #ffffff; --fg: #1c1c1e; --sub: #6e6e73; --line: #e5e5ea; --accent: #c77c00; }
-  @media (prefers-color-scheme: dark) { :root { --bg: #0a0a0b; --fg: #f2f2f7; --sub: #98989d; --line: #2c2c2e; --accent: #ffb340; } }
-  body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif; }
-  main { max-width: 40em; margin: 0 auto; padding: 48px 16px 64px; }
-  h1 { font-size: 32px; margin: 0 0 4px; }
-  h2 { font-size: 20px; margin: 40px 0 8px; }
-  .lead { color: var(--accent); font-weight: 600; margin: 0 0 24px; }
-  .en { color: var(--sub); }
-  hr { border: 0; border-top: 1px solid var(--line); margin: 48px 0; }
-  ul { padding-left: 1.2em; }
-  a { color: var(--accent); }
-</style>
+<title>Daybeam Remind — 最後にいつやった？に、ひと目で答える</title>
+<meta name="description" content="ときどきやらなければいけないことが、最後にやってから何日たったかを見せる iPhone 向けのアプリ。">
+<meta name="theme-color" content="#1D2A44">
+<link rel="stylesheet" href="../site.css">
 </head>
 <body>
-<main>
-  <h1>Daybeam Remind</h1>
-  <p class="lead">あれ、最後にいつやった？に、ひと目で答える。</p>
-  <p>ペットのシャンプー、エアコンのフィルター掃除、歯ブラシの交換。決まった日はないけれど、ときどきやらなければいけないことが、最後にやってから何日たったかを見せる iPhone 向けのアプリです。開発中です。</p>
 
-  <h2>できること</h2>
-  <ul>
-    <li>最後にやってからの日数と、決めた間隔までの残りをひと目で表示</li>
-    <li>カードを 1 回タップすれば「今やった」。間違えたら元に戻せます</li>
-    <li>「ペットのシャンプー 30日」と 1 行打つだけで登録</li>
-    <li>やりどきが来た日にだけ、1 日 1 回の通知（ルーティンごとに選べます）</li>
-    <li>iOS のリマインダーの、期限のあるやることも同じ場所に表示</li>
-  </ul>
-
-  <h2>プライバシー</h2>
-  <ul>
-    <li>ルーティンは iPhone の中にだけ保存します。サーバーは使いません。</li>
-    <li>リマインダーは iOS のリマインダーに保存します。</li>
-  </ul>
-
-  <p><a href="../">ALINE APPS のアプリ一覧</a></p>
-
-  <hr>
-
-  <div class="en" lang="en">
-    <h1>Daybeam Remind</h1>
-    <p class="lead">“When did I last do that?” — answered at a glance.</p>
-    <p>Pet shampoo, air-conditioner filters, a new toothbrush. For the chores with no fixed date, this iPhone app shows how many days it has been since you last did them. In development.</p>
-
-    <h2>Features</h2>
-    <ul>
-      <li>See the days since you last did each routine, and how long until it’s due</li>
-      <li>Tap a card once to mark it done; undo if you tapped by mistake</li>
-      <li>Add a routine in one line, such as “Pet shampoo 30 days”</li>
-      <li>One notification a day, only when something is due (choose per routine)</li>
-      <li>Your iOS reminders with due dates appear in the same place</li>
-    </ul>
-
-    <h2>Privacy</h2>
-    <ul>
-      <li>Routines are stored only on your iPhone. No server is used.</li>
-      <li>Reminders are stored in iOS Reminders.</li>
-    </ul>
-
-    <p><a href="../">All apps by ALINE APPS</a></p>
+<header class="hero">
+  <div class="wrap">
+    <nav class="topbar" aria-label="ページ内の移動">
+      <a href="../">ALINE APPS</a>
+      <a href="#en" lang="en">English</a>
+    </nav>
+    <div class="hero-body">
+      <div class="app-icon tile daybeam" role="img" aria-label="Daybeam Remind"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l3 2"/></svg></div>
+      <div class="hero-text">
+        <span class="badge">iPhone ・ 開発中 ・ Daybeam シリーズ</span>
+        <h1>Daybeam Remind</h1>
+        <p class="lead">あれ、最後にいつやった？に、ひと目で答える。</p>
+        <p class="desc">ペットのシャンプー、エアコンのフィルター掃除、歯ブラシの交換。決まった日はないけれど、ときどきやらなければいけないことが、最後にやってから何日たったかを見せる iPhone 向けのアプリです。</p>
+      </div>
+    </div>
   </div>
+</header>
+
+<main class="wrap">
+  <section>
+    <p class="section-title">Features</p>
+    <h2>できること</h2>
+    <div class="card">
+      <ul class="checklist">
+        <li>最後にやってからの日数と、決めた間隔までの残りをひと目で表示</li>
+        <li>カードを 1 回タップすれば「今やった」。間違えたら元に戻せます</li>
+        <li>「ペットのシャンプー 30日」と 1 行打つだけで登録</li>
+        <li>やりどきが来た日にだけ、1 日 1 回の通知（ルーティンごとに選べます）</li>
+        <li>iOS のリマインダーの、期限のあるやることも同じ場所に表示</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <p class="section-title">Privacy</p>
+    <h2>プライバシー</h2>
+    <div class="card privacy">
+      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg></div>
+      <ul>
+        <li>ルーティンは iPhone の中にだけ保存します。サーバーは使いません。</li>
+        <li>リマインダーは iOS のリマインダーに保存します。</li>
+      </ul>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <div lang="en">
+    <section id="en">
+      <p class="section-title">Daybeam Remind</p>
+      <h2>“When did I last do that?” — answered at a glance.</h2>
+      <p class="section-note">Pet shampoo, air-conditioner filters, a new toothbrush. For the chores with no fixed date, this iPhone app shows how many days it has been since you last did them. In development.</p>
+      <div class="card">
+        <ul class="checklist">
+          <li>See the days since you last did each routine, and how long until it’s due</li>
+          <li>Tap a card once to mark it done; undo if you tapped by mistake</li>
+          <li>Add a routine in one line, such as “Pet shampoo 30 days”</li>
+          <li>One notification a day, only when something is due (choose per routine)</li>
+          <li>Your iOS reminders with due dates appear in the same place</li>
+        </ul>
+      </div>
+    </section>
+    <section>
+      <p class="section-title">Privacy</p>
+      <div class="card privacy">
+        <ul>
+          <li>Routines are stored only on your iPhone. No server is used.</li>
+          <li>Reminders are stored in iOS Reminders.</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <span>© ALINE APPS</span>
+    <a href="../">ALINE APPS のアプリ一覧 / All apps</a>
+  </footer>
 </main>
+
 </body>
 </html>

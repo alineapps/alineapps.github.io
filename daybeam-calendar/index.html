@@ -3,67 +3,89 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Daybeam Calendar</title>
-<meta name="description" content="開いた瞬間、今日がわかる。予定・リマインダー・天気をひと目で見られる iPhone 向けのカレンダー。">
-<style>
-  :root { color-scheme: light dark; --bg: #ffffff; --fg: #1c1c1e; --sub: #6e6e73; --line: #e5e5ea; --accent: #c77c00; }
-  @media (prefers-color-scheme: dark) { :root { --bg: #0a0a0b; --fg: #f2f2f7; --sub: #98989d; --line: #2c2c2e; --accent: #ffb340; } }
-  body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif; }
-  main { max-width: 40em; margin: 0 auto; padding: 48px 16px 64px; }
-  h1 { font-size: 32px; margin: 0 0 4px; }
-  h2 { font-size: 20px; margin: 40px 0 8px; }
-  .lead { color: var(--accent); font-weight: 600; margin: 0 0 24px; }
-  .en { color: var(--sub); }
-  hr { border: 0; border-top: 1px solid var(--line); margin: 48px 0; }
-  ul { padding-left: 1.2em; }
-  a { color: var(--accent); }
-</style>
+<title>Daybeam Calendar — 開いた瞬間、今日がわかる</title>
+<meta name="description" content="今日の予定・リマインダー・天気を 1 つの画面にまとめた、iPhone 向けのカレンダー。">
+<meta name="theme-color" content="#1D2A44">
+<link rel="stylesheet" href="../site.css">
 </head>
 <body>
-<main>
-  <h1>Daybeam Calendar</h1>
-  <p class="lead">開いた瞬間、今日がわかる。</p>
-  <p>今日の予定・リマインダー・天気を 1 つの画面にまとめた、iPhone 向けのカレンダーです。開発中です。</p>
 
-  <h2>できること</h2>
-  <ul>
-    <li>iOS のカレンダー（iCloud・Google・Outlook など、iPhone に登録したアカウント）の予定を表示</li>
-    <li>iOS のリマインダーの、今日に関わるものをまとめて表示。タップで完了</li>
-    <li>今日の天気と、予定の場所・時刻の天気</li>
-    <li>「明日 15時 打ち合わせ」のように、1 行で予定を追加</li>
-  </ul>
-
-  <h2>プライバシー</h2>
-  <ul>
-    <li>予定とリマインダーは iOS のカレンダー・リマインダーに保存します。iOS のアプリと同じデータを読み書きするので、どちらで変えても食い違いません。</li>
-    <li>天気を取るときだけ、位置を天気のサービスに送ります。</li>
-  </ul>
-
-  <p><a href="../">ALINE APPS のアプリ一覧</a></p>
-
-  <hr>
-
-  <div class="en" lang="en">
-    <h1>Daybeam Calendar</h1>
-    <p class="lead">Know your day the moment you open it.</p>
-    <p>A calendar for iPhone that brings today’s events, reminders and weather together on one screen. In development.</p>
-
-    <h2>Features</h2>
-    <ul>
-      <li>Shows events from the iOS calendars on your iPhone (iCloud, Google, Outlook and more)</li>
-      <li>Shows today’s iOS reminders in one place; tap to complete</li>
-      <li>Today’s weather, and the weather at each event’s place and time</li>
-      <li>Add an event in one line, such as “Meeting tomorrow 3pm”</li>
-    </ul>
-
-    <h2>Privacy</h2>
-    <ul>
-      <li>Events and reminders are stored in iOS Calendar and Reminders, so the app and the iOS apps always show the same data.</li>
-      <li>Your location is sent to a weather service only to get the weather.</li>
-    </ul>
-
-    <p><a href="../">All apps by ALINE APPS</a></p>
+<header class="hero">
+  <div class="wrap">
+    <nav class="topbar" aria-label="ページ内の移動">
+      <a href="../">ALINE APPS</a>
+      <a href="#en" lang="en">English</a>
+    </nav>
+    <div class="hero-body">
+      <div class="app-icon tile daybeam" role="img" aria-label="Daybeam Calendar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg></div>
+      <div class="hero-text">
+        <span class="badge">iPhone ・ 開発中 ・ Daybeam シリーズ</span>
+        <h1>Daybeam Calendar</h1>
+        <p class="lead">開いた瞬間、今日がわかる。</p>
+        <p class="desc">今日の予定・リマインダー・天気を 1 つの画面にまとめた、iPhone 向けのカレンダーです。</p>
+      </div>
+    </div>
   </div>
+</header>
+
+<main class="wrap">
+  <section>
+    <p class="section-title">Features</p>
+    <h2>できること</h2>
+    <div class="card">
+      <ul class="checklist">
+        <li>iOS のカレンダー（iCloud・Google・Outlook など、iPhone に登録したアカウント）の予定を表示</li>
+        <li>iOS のリマインダーの、今日に関わるものをまとめて表示。タップで完了</li>
+        <li>今日の天気と、予定の場所・時刻の天気</li>
+        <li>「明日 15時 打ち合わせ」のように、1 行で予定を追加</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <p class="section-title">Privacy</p>
+    <h2>プライバシー</h2>
+    <div class="card privacy">
+      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg></div>
+      <ul>
+        <li>予定とリマインダーは iOS のカレンダー・リマインダーに保存します。iOS のアプリと同じデータを読み書きするので、どちらで変えても食い違いません。</li>
+        <li>天気を取るときだけ、位置を天気のサービスに送ります。</li>
+      </ul>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <div lang="en">
+    <section id="en">
+      <p class="section-title">Daybeam Calendar</p>
+      <h2>Know your day the moment you open it.</h2>
+      <p class="section-note">A calendar for iPhone that brings today’s events, reminders and weather together on one screen. In development.</p>
+      <div class="card">
+        <ul class="checklist">
+          <li>Shows events from the iOS calendars on your iPhone (iCloud, Google, Outlook and more)</li>
+          <li>Shows today’s iOS reminders in one place; tap to complete</li>
+          <li>Today’s weather, and the weather at each event’s place and time</li>
+          <li>Add an event in one line, such as “Meeting tomorrow 3pm”</li>
+        </ul>
+      </div>
+    </section>
+    <section>
+      <p class="section-title">Privacy</p>
+      <div class="card privacy">
+        <ul>
+          <li>Events and reminders are stored in iOS Calendar and Reminders, so the app and the iOS apps always show the same data.</li>
+          <li>Your location is sent to a weather service only to get the weather.</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <span>© ALINE APPS</span>
+    <a href="../">ALINE APPS のアプリ一覧 / All apps</a>
+  </footer>
 </main>
+
 </body>
 </html>

@@ -1,0 +1,140 @@
+/* ALINE APPS の全ページで共通のスタイル。 */
+:root {
+  color-scheme: light dark;
+  --navy: #1D2A44;
+  --amber: #F29A3A;
+  --hero-sub: #C9D2E3;
+  --bg: #F4F5F8;
+  --card: #FFFFFF;
+  --fg: #141821;
+  --sub: #5E626A;
+  --line: #E2E4EA;
+  --accent: #9A4A0E;
+  --icon-bg: #FDF0E2;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0B0F17;
+    --card: #161C28;
+    --fg: #F2F2F7;
+    --sub: #A3A8B3;
+    --line: #273042;
+    --accent: #F2AE6B;
+    --icon-bg: #2A2116;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 16px/1.75 -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Segoe UI", "Yu Gothic UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); }
+code { font-size: 0.92em; background: var(--icon-bg); border-radius: 6px; padding: 1px 6px; word-break: break-all; }
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+/* 上部の紺の帯 */
+.hero { background: var(--navy); color: #FFFFFF; }
+.hero .wrap { padding-top: 24px; padding-bottom: 72px; }
+.hero.small .wrap { padding-bottom: 48px; }
+.topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 14px; }
+.topbar a { color: var(--hero-sub); text-decoration: none; }
+.topbar a:hover { color: #FFFFFF; }
+.hero-body { display: flex; align-items: center; gap: 40px; margin-top: 56px; flex-wrap: wrap; }
+.hero.small .hero-body { margin-top: 40px; }
+.hero-text { flex: 1 1 320px; min-width: 0; }
+.badge {
+  display: inline-block; font-size: 13px; font-weight: 600; letter-spacing: 0.04em;
+  color: var(--amber); border: 1px solid rgba(242, 154, 58, 0.5); border-radius: 999px; padding: 2px 12px;
+}
+.hero h1 { font-size: clamp(40px, 7vw, 60px); line-height: 1.1; margin: 16px 0 12px; letter-spacing: -0.02em; }
+.hero.small h1 { font-size: clamp(30px, 5vw, 42px); margin-top: 0; }
+.hero .lead { font-size: clamp(18px, 2.6vw, 22px); font-weight: 600; margin: 0 0 8px; }
+.hero .desc { color: var(--hero-sub); margin: 0; }
+.hero .actions { margin-top: 24px; }
+
+/* アプリのアイコン */
+.app-icon {
+  width: 144px; height: 144px; border-radius: 32px; flex: none; display: block;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+.app-icon.sm { width: 64px; height: 64px; border-radius: 15px; box-shadow: none; }
+.tile { display: flex; align-items: center; justify-content: center; color: #FFFFFF; }
+.tile svg { width: 50%; height: 50%; }
+.tile.daybeam { background: #E8A13A; }
+.tile.wishbox { background: #C2457A; }
+
+/* セクション */
+section { padding: 64px 0 0; }
+.section-title { font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin: 0 0 8px; }
+h2 { font-size: clamp(24px, 3.4vw, 30px); line-height: 1.3; margin: 0 0 28px; letter-spacing: -0.01em; }
+.section-note { color: var(--sub); margin: -20px 0 28px; }
+.section-note.flush { margin-top: 0; }
+
+/* カード */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 24px; }
+.card h3 { font-size: 18px; margin: 14px 0 6px; }
+.card > h3:first-child { margin-top: 0; }
+.card p { margin: 0; color: var(--sub); font-size: 15px; }
+.card p + p { margin-top: 10px; }
+.feature-icon {
+  width: 44px; height: 44px; border-radius: 12px; background: var(--icon-bg); color: var(--accent);
+  display: flex; align-items: center; justify-content: center; flex: none;
+}
+.feature-icon svg { width: 24px; height: 24px; }
+.soon { display: inline-block; margin-left: 6px; font-size: 12px; font-weight: 600; color: var(--sub); border: 1px solid var(--line); border-radius: 999px; padding: 0 8px; vertical-align: 2px; }
+
+/* チェックの付いた一覧 */
+.checklist { list-style: none; margin: 0; padding: 0; }
+.checklist li { position: relative; padding-left: 32px; }
+.checklist li + li { margin-top: 12px; }
+.checklist li::before {
+  content: ""; position: absolute; left: 0; top: 4px; width: 20px; height: 20px; border-radius: 50%;
+  background: var(--icon-bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23E07B1F' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center / 12px no-repeat;
+}
+
+/* プライバシーなど、アイコンと一覧を横に並べるカード */
+.privacy { display: flex; gap: 20px; align-items: flex-start; }
+.privacy ul:not(.checklist) { margin: 0; padding-left: 1.2em; color: var(--sub); }
+.privacy li + li { margin-top: 6px; }
+
+/* ボタン */
+.button {
+  display: inline-block; padding: 10px 22px; border-radius: 999px; font-weight: 600; text-decoration: none;
+  background: var(--amber); color: #1D2A44;
+}
+.button:hover { filter: brightness(1.06); }
+.button.ghost { background: transparent; color: var(--accent); border: 1px solid currentColor; }
+.hero .button.ghost { color: #FFFFFF; border-color: rgba(255, 255, 255, 0.4); }
+.buttons { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* 長い文章（プライバシーポリシーなど） */
+.prose { font-size: 16px; }
+.prose h2 { font-size: 19px; margin: 32px 0 8px; }
+.prose h2:first-child { margin-top: 0; }
+.prose p, .prose ul { margin: 0 0 12px; }
+.prose p { color: var(--fg); font-size: 16px; }
+.prose ul { padding-left: 1.2em; }
+.meta { color: var(--hero-sub); font-size: 14px; margin: 8px 0 0; }
+
+.divider { border: 0; border-top: 1px solid var(--line); margin: 80px 0 0; }
+footer { padding: 40px 0 56px; color: var(--sub); font-size: 14px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+
+/* 一覧ページのアプリのカード */
+.app { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 22px; display: flex; gap: 18px; align-items: flex-start; }
+.app-body { min-width: 0; }
+.app h3 { font-size: 19px; margin: 0 0 4px; line-height: 1.4; }
+.app h3 a { color: var(--fg); text-decoration: none; }
+.app h3 a:hover { color: var(--accent); }
+.app p { margin: 0; font-size: 15px; }
+.app .en { color: var(--sub); font-size: 14px; margin-top: 2px; }
+.tag { display: inline-block; margin-top: 10px; font-size: 13px; font-weight: 600; border: 1px solid currentColor; border-radius: 999px; padding: 1px 10px; color: var(--accent); text-decoration: none; }
+
+@media (max-width: 560px) {
+  .hero-body { gap: 24px; margin-top: 40px; }
+  .app-icon:not(.sm) { width: 104px; height: 104px; border-radius: 23px; }
+  .privacy { flex-direction: column; }
+}
