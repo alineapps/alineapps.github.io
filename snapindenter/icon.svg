@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <!-- SnapIndenter: lines of code snapping into their indents. A placeholder until the app has its own icon. -->
+  <rect width="256" height="256" fill="#1D2A44"/>
+  <g stroke-linecap="round" stroke-width="20">
+    <path d="M56 70H168" stroke="#C9D2E3"/>
+    <path d="M96 110H200" stroke="#F29A3A"/>
+    <path d="M96 150H176" stroke="#F29A3A"/>
+    <path d="M56 190H136" stroke="#C9D2E3"/>
+  </g>
+</svg>
