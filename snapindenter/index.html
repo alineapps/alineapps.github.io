@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SnapIndenter — VBA のインデントを、ショートカット 1 つで</title>
+<meta name="description" content="Excel・Access の VBA コードを、VBE からショートカットキー 1 つでインデント整形する無料の軽量アドイン。">
+<meta name="theme-color" content="#1D2A44">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../site.css">
+<style>
+  .shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+  .shots figure { margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 16px; }
+  .shots img { display: block; width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--line); }
+  .shots figcaption { margin-top: 10px; font-size: 14px; font-weight: 600; color: var(--sub); }
+  .keys { width: 100%; border-collapse: collapse; font-size: 15px; }
+  .keys th, .keys td { text-align: left; padding: 10px 8px; border-top: 1px solid var(--line); vertical-align: top; }
+  .keys tr:first-child th, .keys tr:first-child td { border-top: 0; }
+  .keys th { font-weight: 600; }
+  .keys td { color: var(--sub); white-space: nowrap; }
+  kbd { font: 600 13px/1 ui-monospace, Consolas, monospace; background: var(--icon-bg); color: var(--accent); border-radius: 6px; padding: 3px 7px; white-space: nowrap; }
+  ol.steps { margin: 0; padding-left: 1.3em; color: var(--sub); font-size: 15px; }
+  ol.steps li + li { margin-top: 6px; }
+  .after-card { margin-top: 16px; }
+  .grid.two { grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); }
+  @media (max-width: 560px) {
+    .grid.two { grid-template-columns: 1fr; }
+    .shots { grid-template-columns: 1fr; }
+    .keys tr { display: block; padding: 8px 0; border-top: 1px solid var(--line); }
+    .keys tr:first-child { border-top: 0; }
+    .keys th, .keys td { display: block; border: 0; padding: 2px 0; white-space: normal; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <nav class="topbar" aria-label="ページ内の移動">
+      <a href="../">ALINE APPS</a>
+      <a href="#en" lang="en">English</a>
+    </nav>
+    <div class="hero-body">
+      <img class="app-icon" src="icon.svg" alt="SnapIndenter のアイコン">
+      <div class="hero-text">
+        <span class="badge">Windows ・ Excel / Access ・ 無料</span>
+        <h1>SnapIndenter</h1>
+        <p class="lead">VBA のインデントを、ショートカット 1 つで。</p>
+        <p class="desc">Excel・Access の VBA コードを、VBE（Visual Basic Editor）からキー 1 つで字下げし直す軽量アドインです。Office の起動を遅くしません。</p>
+        <div class="buttons actions">
+          <a class="button" href="https://github.com/alineapps/SnapIndenter/releases/latest">無料でダウンロード</a>
+          <a class="button ghost" href="#install">インストール方法</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section>
+    <p class="section-title">Before / After</p>
+    <h2>崩れたインデントが、一瞬で整う</h2>
+    <div class="shots">
+      <figure>
+        <a href="before.png"><img src="before.png" width="1100" height="760" alt="整形前の VBA コード。字下げがそろっていない" loading="lazy"></a>
+        <figcaption>整形前</figcaption>
+      </figure>
+      <figure>
+        <a href="after.png"><img src="after.png" width="1100" height="760" alt="整形後の VBA コード。If・For・Select Case に合わせて字下げされている" loading="lazy"></a>
+        <figcaption>整形後（Ctrl+Shift+F）</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section>
+    <p class="section-title">Features</p>
+    <h2>特長</h2>
+    <div class="grid two">
+      <div class="card">
+        <h3>軽い</h3>
+        <p>DLL 1 つ（約 90KB）だけ。大きなアドインのように、Excel や Access の起動を待たせません。</p>
+      </div>
+      <div class="card">
+        <h3>SmartIndenter の代わりに</h3>
+        <p>有償化された SmartIndenter と同じくらいの機能に絞った、無料のインデント整形です。</p>
+      </div>
+      <div class="card">
+        <h3>行数を変えない</h3>
+        <p>字下げだけを直すので、ブレークポイントの位置もずれません。直前の整形は元に戻せます。</p>
+      </div>
+      <div class="card">
+        <h3>インストールが簡単</h3>
+        <p>install.bat を実行するだけ。管理者権限も、「VBA プロジェクト オブジェクト モデルへのアクセスを信頼する」の設定も要りません。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="section-title">How to use</p>
+    <h2>使い方</h2>
+    <div class="card">
+      <table class="keys">
+        <tr><th>カーソル位置のプロシージャを整形（複数行を選択しているときは選択範囲）</th><td><kbd>Ctrl+Shift+F</kbd></td></tr>
+        <tr><th>表示中のモジュール全体を整形</th><td><kbd>Ctrl+Shift+M</kbd></td></tr>
+        <tr><th>プロジェクト全体を整形・直前の整形を元に戻す・設定</th><td>メニュー「整形」から</td></tr>
+      </table>
+    </div>
+    <div class="card after-card">
+      <p>If・Select Case・For・Do・With・Type・Enum・#If などに合わせて字下げします。インデント幅、タブの使用、Case を字下げするかどうか、ショートカットキーは、プレビュー付きの設定画面で変えられます。画面は日本語と英語に対応しています。</p>
+    </div>
+  </section>
+
+  <section id="install">
+    <p class="section-title">Download</p>
+    <h2>ダウンロードとインストール</h2>
+    <p class="section-note">最新版: 1.5.1（無料・MIT License）。Windows 10 / 11、Office 2010 以降（Microsoft 365 を含む、32bit / 64bit）。</p>
+    <div class="grid">
+      <div class="card">
+        <h3>インストール</h3>
+        <ol class="steps">
+          <li><a href="https://github.com/alineapps/SnapIndenter/releases/latest">GitHub の Releases</a> から <code>SnapIndenter-x.y.z.zip</code> をダウンロード</li>
+          <li>Excel・Access など、Office をすべて終了</li>
+          <li>zip を右クリック →「プロパティ」→「許可する」にチェック → OK</li>
+          <li>zip を展開して <code>install.bat</code> をダブルクリック</li>
+          <li>Office を起動し、<kbd>Alt+F11</kbd> で VBE を開くと、メニューに「整形」が増えています</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3>アンインストール</h3>
+        <p>Windows の「設定 → アプリ → インストールされているアプリ」で SnapIndenter を選ぶか、同梱の <code>uninstall.bat</code> を実行してください。</p>
+        <p>インストール時に「Windows によって PC が保護されました」と出たときは、「詳細情報」→「実行」で続けられます。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="section-title">Support</p>
+    <h2>サポート</h2>
+    <p class="section-note flush">不具合の報告や要望は、GitHub の Issues にお寄せください。整形が崩れるときは、そのコードの例を添えていただけると助かります。</p>
+    <div class="buttons">
+      <a class="button ghost" href="https://github.com/alineapps/SnapIndenter/issues">不具合の報告・要望</a>
+      <a class="button ghost" href="https://github.com/alineapps/SnapIndenter">ソースコード（GitHub）</a>
+      <a class="button ghost" href="https://qiita.com/alineapps/items/0d2ff1a0496cf65a7ef9">紹介記事（Qiita）</a>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <div lang="en">
+    <section id="en">
+      <p class="section-title">SnapIndenter</p>
+      <h2>Re-indent VBA code with one shortcut.</h2>
+      <p class="section-note">A free, lightweight add-in for the VBA editor (VBE) in Excel and Access. It doesn't slow down Office startup.</p>
+      <div class="card">
+        <ul class="checklist">
+          <li>A single ~90 KB DLL, so Office starts as fast as before</li>
+          <li><kbd>Ctrl+Shift+F</kbd> indents the current procedure or selection, <kbd>Ctrl+Shift+M</kbd> the whole module</li>
+          <li>Only indentation changes, never the number of lines, so breakpoints stay put. You can undo the last indent</li>
+          <li>Install by running install.bat. No admin rights, and no need to trust access to the VBA project object model</li>
+          <li>Japanese and English UI</li>
+        </ul>
+      </div>
+    </section>
+    <section>
+      <p class="section-title">Download</p>
+      <p class="section-note flush">Latest version: 1.5.1 (free, MIT License). Windows 10 / 11, Office 2010 or later (including Microsoft 365, 32-bit / 64-bit).</p>
+      <div class="card">
+        <ol class="steps">
+          <li>Download <code>SnapIndenter-x.y.z.zip</code> from <a href="https://github.com/alineapps/SnapIndenter/releases/latest">GitHub Releases</a></li>
+          <li>Close all Office apps</li>
+          <li>Right-click the zip → Properties → check "Unblock" → OK</li>
+          <li>Extract the zip and double-click <code>install.bat</code></li>
+          <li>Start Office and press <kbd>Alt+F11</kbd>. A new "SnapIndenter" menu appears in the VBE</li>
+        </ol>
+      </div>
+    </section>
+    <section>
+      <p class="section-title">Support</p>
+      <div class="buttons">
+        <a class="button ghost" href="https://github.com/alineapps/SnapIndenter/issues">Report a bug or request a feature</a>
+        <a class="button ghost" href="https://github.com/alineapps/SnapIndenter">Source code (GitHub)</a>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <span>© ALINE APPS</span>
+    <a href="../">ALINE APPS のアプリ一覧 / All apps</a>
+  </footer>
+</main>
+
+</body>
+</html>
