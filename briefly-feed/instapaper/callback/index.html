@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex">
+<title>Briefly Feed</title>
+<meta name="theme-color" content="#1D2A44">
+<link rel="stylesheet" href="../../../site.css">
+</head>
+<body>
+<header class="hero small">
+  <div class="wrap">
+    <div class="hero-body">
+      <div class="hero-text">
+        <h1>Briefly Feed に戻ります…</h1>
+        <p class="meta" lang="en">Returning to Briefly Feed…</p>
+      </div>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+  <section>
+    <p><a class="button" id="open" href="brieflyfeed://instapaper/callback">アプリを開く / Open the app</a></p>
+  </section>
+</main>
+<script>
+  // Instapaper sends the user back here with ?code=…&state=… (or ?error=…). This page keeps
+  // nothing and loads only the site's own stylesheet (no referrer is sent); it only hands the
+  // query to the app's own URL scheme.
+  (function () {
+    var target = 'brieflyfeed://instapaper/callback' + window.location.search;
+    document.getElementById('open').setAttribute('href', target);
+    window.location.replace(target);
+  })();
+</script>
+</body>
+</html>
